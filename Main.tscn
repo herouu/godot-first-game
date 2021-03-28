@@ -15,6 +15,7 @@ script = ExtResource( 2 )
 Mob = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 234.477, 451.767 )
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -25,15 +26,14 @@ wait_time = 0.5
 wait_time = 2.0
 one_shot = true
 
-[node name="StartPosition" type="Position2D" parent="."]
-position = Vector2( 240, 450 )
-
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="StartPosition" type="Position2D" parent="."]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
